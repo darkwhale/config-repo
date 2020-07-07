@@ -1,2 +1,15 @@
 server:
   port: 9000
+zuul:
+#    product: /goodProduct/**
+
+# 排除某些路由
+  ignored-patterns:
+    - /**/product/listForOrder
+  # 全部服务都可传递cookie,忽略敏感头；
+  sensitive-headers: 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes
